@@ -6,7 +6,7 @@ export default function Telei()
     return <section>
        <div className=" bg-black  flex flex-col items-center text-white p-5">
       
-       <h1 className=" text-6xl font-semibold">Telei '24</h1>
+       <h1 className=" text-6xl font-semibold">Telei 24</h1>
        <h2>autoshow</h2>
        </div>
        <HorizontalScroll/>
