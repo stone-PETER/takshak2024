@@ -4,7 +4,7 @@ export default function Hero()
   return <section
   // className=" grid h-screen place-content-center gap-2 bg-green-300 px-8 text-black"
    className=" flex flex-col justify-center items-center h-dvh bg-green-300">
-     <h1 className="takshakMainHeading text-9xl scale-110">Takshak 2024</h1> 
+     <h1 className="takshakMainHeading text-8xl sm:text-9xl scale-110">Takshak 2024</h1> 
      <h2 className=" text-3xl font-bold">Decade decrypted</h2>
     {/* <FlipLink href="about">About</FlipLink>
     <FlipLink href="about">Telei</FlipLink>
