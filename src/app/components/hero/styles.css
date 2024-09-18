@@ -1,0 +1,4 @@
+.Title{
+    text-shadow: 2px 0 #3F353D, -2px 0 #3F353D, 0 2px #3F353D, 0 -2px #3F353D,
+             1px 1px #3F353D, -1px -1px #3F353D, 1px -1px #3F353D, -1px 1px #3F353D;
+}
