@@ -1,7 +1,7 @@
 "use client";
-import './styles.css';
+import "./styles.css";
 // export default function Hero()
-// {
+// {screen
 //   return <section
 //   // className=" grid h-screen place-content-center gap-2 bg-green-300 px-8 text-black"
 //    className=" flex flex-col justify-center items-center h-dvh bg-green-300">
@@ -15,8 +15,13 @@ import './styles.css';
 
 export default function Hero() {
   return (
-    <section className="h-screen w-screen">
-      <div className="fixed h-screen w-screen flex justify-center items-center overflow-hidden -z-10 bg-blue-500">
+    <section className="h-screen ">
+      <div className="Title fixed -z-5 h-1/5 w-screen text-7xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
+        {/* <h2>Saptha</h2> */}
+        <h1>TAKSHAK'24</h1>
+        <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
+      </div>
+      <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-10 bg-black">
         {/* <Image
           src="/images/recordPlayer-Hero.jpeg"
           width={500}
@@ -30,21 +35,18 @@ export default function Hero() {
           alt="Picture of Record Player"
         /> */}
 
-        <div className="Title text-9xl text-yellow-100 font-semibold z-10 text-center leading-relaxed">
-          <h2>Saptha</h2>
-          <h1>Takshak 24</h1>
-        </div>
         <img
-          className="absolute w-screen md:hidden"
-          src="/images/recordPlayer-flipped.jpeg"
+          className="absolute w-screen h-auto"
+          src="/images/TakshakNews.png"
           alt="image of record player"
         />
-        <img
+        {/* <img
           className="hidden absolute w-screen md:block"
-          src="/images/recordPlayer-Hero.jpeg"
+          src="/images/TakshakNews.png"
           alt="image of record player"
-        />
+        /> */}
         <div className="absolute h-screen w-screen bg-black/70"></div>
+        {/* <div className="overlay absolute h-screen w-screen bg-black/90"></div> */}
       </div>
     </section>
   );
