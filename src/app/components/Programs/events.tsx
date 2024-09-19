@@ -1,112 +1,126 @@
 "use client";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-import React, { useState } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import Image from 'next/image';
+export default function Events() {
+  const events = [
+    { id: "event1", src: "/images/event1.jpg" },
+    { id: "event2", src: "/images/event1.jpg" },
+    { id: "event3", src: "/images/event1.jpg" },
+    { id: "event4", src: "/images/event1.jpg" },
+    { id: "event5", src: "/images/event1.jpg" },
+    { id: "event6", src: "/images/event1.jpg" },
+    { id: "event7", src: "/images/event1.jpg" },
+    { id: "event8", src: "/images/event1.jpg" },
+    { id: "event9", src: "/images/event1.jpg" },
+    { id: "event10", src: "/images/event1.jpg" },
+    { id: "event11", src: "/images/event1.jpg" },
+    { id: "event12", src: "/images/event1.jpg" },
+  ];
 
-interface CardData {
-  id: number;
-  url: string;
-}
-
-interface CardProps extends CardData {
-  setCards: React.Dispatch<React.SetStateAction<CardData[]>>;
-  cards: CardData[];
-}
-
-const Events: React.FC = () => {
-  const [cards, setCards] = useState<CardData[]>(cardData);
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   return (
-    <section className="relative min-h-dvh">
-      <section className="absolute z-10 bg-black h-full w-full text-white">
-        Events name
-      </section>
+    <section className="h-[500vh] flex flex-col justify-start items-center" ref={ref}>
+      <div className="sticky top-0 left-0 flex flex-col items-center justify-center gap-8 p-32">
+        <h2 className="text-4xl font-bold mb-8">Events</h2>
+        <div className="grid grid-cols-4 grid-rows-2 gap-4 w-full">
+          {events.slice(0, 4).map((event, index) => {
+            const translateX = useTransform(
+              scrollYProgress,
+              [0.1, 0.237, 0.375],
+              index < 2 ? ["-200px", "0px", "-200px"] : ["200px", "0px", "200px"]
+            );
+            const translateY = useTransform(
+              scrollYProgress,
+              [0.1, 0.375],
+              ["300px", "0px"]
+            );
+            const opacity = useTransform(scrollYProgress, [0.1, 0.237, 0.375], [0, 1, 0]);
+            // Use a direct array mapping for display property
+            const display = useTransform(scrollYProgress, [0.1, 0.375], ["block", "none"]);
 
-      <div className="grid h-[500px] w-full place-items-center bg-neutral-100">
-        {cards.map((card) => (
-          <Card key={card.id} cards={cards} setCards={setCards} {...card} />
-        ))}
+            return (
+              <motion.img
+                key={event.id}
+                src={event.src}
+                width={300}
+                height={300}
+                className="object-cover"
+                style={{
+                  translateX,
+                  translateY,
+                  opacity,
+                  display,
+                }}
+              />
+            );
+          })}
+
+          {events.slice(4, 8).map((event, index) => {
+            const translateX = useTransform(
+              scrollYProgress,
+              [0.375, 0.5125, 0.65],
+              index < 2 ? ["-200px", "0px", "-200px"] : ["200px", "0px", "200px"]
+            );
+            const translateY = useTransform(
+              scrollYProgress,
+              [0.375, 0.65],
+              ["300px", "0px"]
+            );
+            const opacity = useTransform(scrollYProgress, [0.375, 0.5125, 0.65], [0, 1, 0]);
+            const display = useTransform(scrollYProgress, [0.375, 0.65], ["block", "none"]);
+
+            return (
+              <motion.img
+                key={event.id}
+                src={event.src}
+                width={300}
+                height={300}
+                className="object-cover"
+                style={{
+                  translateX,
+                  translateY,
+                  opacity,
+                  display,
+                }}
+              />
+            );
+          })}
+
+          {events.slice(8, 12).map((event, index) => {
+            const translateX = useTransform(
+              scrollYProgress,
+              [0.65, 0.885, 0.925],
+              index < 2 ? ["-200px", "0px", "-200px"] : ["200px", "0px", "200px"]
+            );
+            const translateY = useTransform(
+              scrollYProgress,
+              [0.65, 0.925],
+              ["300px", "0px"]
+            );
+            const opacity = useTransform(scrollYProgress, [0.65, 0.7785, 0.925], [0, 1, 0]);
+            const display = useTransform(scrollYProgress, [0.65, 0.925], ["block", "none"]);
+
+            return (
+              <motion.img
+                key={event.id}
+                src={event.src}
+                width={300}
+                height={300}
+                className="object-cover"
+                style={{
+                  translateX,
+                  translateY,
+                  opacity,
+                  display,
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );
-};
-
-const Card: React.FC<CardProps> = ({ id, url, setCards, cards }) => {
-  const x = useMotionValue(0);
-  const rotateRaw = useTransform(x, [-150, 150], [-18, 18]);
-  const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
-  const isFront = id === cards[cards.length - 1].id;
-
-  const rotate = useTransform(() => {
-    const offset = isFront ? 0 : id % 2 ? 6 : -6;
-    return `${rotateRaw.get() + offset}deg`;
-  });
-
-  const handleDragEnd = () => {
-    if (Math.abs(x.get()) > 100) {
-      setCards((pv: CardData[]) => pv.filter((v: CardData) => v.id !== id));
-    }
-  };
-
-  return (
-    <motion.div
-      style={{
-        x,
-        rotate,
-        opacity,
-        position: 'absolute',
-        width: '288px',
-        height: '384px',
-      }}
-      drag={isFront ? "x" : false}
-      dragConstraints={{ left: 0, right: 0 }}
-      onDragEnd={handleDragEnd}
-    >
-      <Image
-        src={url}
-        alt={`Card ${id}`}
-        fill
-        style={{ objectFit: 'cover' }}
-      />
-    </motion.div>
-  );
-  
-};
-
-const cardData: CardData[] = [
-  {
-    id: 1,
-    url: "/Images/Tsomo.png",
-  },
-  {
-    id: 2,
-    url: "/Images/Tsomo.png",
-  },
-  {
-    id: 3,
-    url: "/Images/Tsomo.png",
-  },
-  {
-    id: 4,
-    url: "/Images/Tsomo.png"  },
-  {
-    id: 5,
-    url: "/Images/Tsomo.png",
-  },
-  {
-    id: 6,
-    url: "/Images/Tsomo.png",
-  },
-  {
-    id: 7,
-    url: "/Images/Tsomo.png",
-  },
-  {
-    id: 8,
-    url: "/Images/Tsomo.png",
-  },
-];
-
-export default Events;
- 
+}
