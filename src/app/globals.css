@@ -12,3 +12,31 @@
   font-family: TakshakFont;
  
 }
+
+@font-face {
+  font-family: 'GraffitiHipster';
+  src: url('fonts/GraffitiHipsterDemoVersionRegular-ZVBxJ.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraffitiRustyRegular';
+  src: url('fonts/GraffitiRustyRegular-OVlE3.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraffitiRustyShadow';
+  src: url('fonts/GraffitiRustyShadow-ZVvyK.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/InterVariable.ttf')format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
