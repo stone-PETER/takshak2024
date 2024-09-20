@@ -4,7 +4,7 @@ import ScrollZoom from "./scrollZoomEffect/page";
 
 export default function Telei()
 {
-    return <section className=" overflow-x-clip overflow-y-clip">
+    return <section className=" overflow-x-clip overflow-y-clip relative z-50">
        <div className=" bg-black  flex flex-col items-center text-white p-5">
       
        <h1 className=" text-6xl font-semibold">Telei 24</h1>
