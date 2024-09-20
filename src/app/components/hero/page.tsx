@@ -1,5 +1,6 @@
 "use client";
 import "./styles.css";
+import VideoPlayer from "./VideoPlayer";
 import{ useState, useEffect } from "react";
 // export default function Hero()
 // {screen
@@ -30,12 +31,12 @@ export default function Hero() {
   //   window.addEventListener("resize", updateVidSrc);
   //   return () => window.removeEventListener("resize", updateVidSrc);
   // }, []);
+  const useScrollPosition = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
   
     useEffect(() => {
       const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
+        setScrollPosition(window.pageYOffset);
       };
   
       window.addEventListener('scroll', handleScroll, { passive: true });
@@ -44,6 +45,25 @@ export default function Hero() {
         window.removeEventListener('scroll', handleScroll);
       };
     }, []);
+  
+    return scrollPosition;
+  };
+  const scrollPosition = useScrollPosition();
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <section className="h-screen ">
       <div className="Title fixed flex justify-center items-center  -z-5 h-2/5 w-screen  text-yellow-100 font-semibold text-center leading-relaxed">
@@ -52,12 +72,7 @@ export default function Hero() {
         <div className="Title-bg hidden absolute top-0 -z-10 h-full w-screen"></div>
       </div>
       <div className="fixed h-full w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
-        <video className="hidden lg:block"autoPlay muted loop id="myVideo">
-          <source src="RP-L.mp4" type="video/mp4" />
-        </video>
-        <video className="lg:hidden"autoPlay muted loop id="myVideo">
-          <source src="RP-P.mp4" type="video/mp4" />
-        </video>
+        <VideoPlayer/>
         {/* <img
           className="absolute w-screen h-auto"
           src="/images/TakshakNews.png"
@@ -67,7 +82,7 @@ export default function Hero() {
         <div className="absolute h-screen w-screen overlay"></div>
       </div>
       <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center" style={{
-          transform: `translateX(${Math.min(scrollPosition*5, window.innerWidth)}px)`,
+          transform: `translateX(${Math.min(scrollPosition * 4, windowWidth)}px)`,
         }}>
         <h2>Is Coming to MACE</h2>
       </div>
