@@ -30,14 +30,28 @@ export default function Hero() {
   //   window.addEventListener("resize", updateVidSrc);
   //   return () => window.removeEventListener("resize", updateVidSrc);
   // }, []);
+    const [scrollPosition, setScrollPosition] = useState(0);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+      };
+  
+      window.addEventListener('scroll', handleScroll, { passive: true });
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
   return (
     <section className="h-screen ">
-      <div className="Title fixed -z-5 h-1/5 w-screen text-6xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
+      <div className="Title fixed flex justify-center items-center  -z-5 h-2/5 w-screen  text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
         <h1>{"TAKSHAK'24"}</h1>
-        <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
+        <div className="Title-bg hidden absolute top-0 -z-10 h-full w-screen"></div>
       </div>
-      <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
+      <div className="fixed h-full w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
         <video className="hidden lg:block"autoPlay muted loop id="myVideo">
           <source src="RP-L.mp4" type="video/mp4" />
         </video>
@@ -52,7 +66,9 @@ export default function Hero() {
         <div className="absolute h-screen w-screen bg-black/80"></div>
         <div className="absolute h-screen w-screen overlay"></div>
       </div>
-      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center">
+      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center" style={{
+          transform: `translateX(${Math.min(scrollPosition*5, window.innerWidth)}px)`,
+        }}>
         <h2>Is Coming to MACE</h2>
       </div>
     </section>

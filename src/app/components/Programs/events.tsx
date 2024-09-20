@@ -93,9 +93,9 @@ export default function Events() {
   };
 
   return (
-    <motion.section ref={targetRef} className="h-[500vh] w-dvw bg-black flex flex-col justify-start items-center">
+    <motion.section ref={targetRef} className="h-[500vh] w-dvw bg-black flex flex-col justify-start items-center relative">
       <div className="sticky top-0 left-0 flex flex-col items-center justify-center gap-8 p-4 sm:p-8 w-full">
-        <h2 className="text-4xl font-bold mb-8 text-white">Events</h2>
+        <h2 className="text-5xl font-bold mb-8 text-white">Events</h2>
 
         {[0, 1, 2].map((setIndex) => (
           <motion.div key={setIndex} style={{ translateY: translateYSet[setIndex], opacity: opacitySet[setIndex], display: displaySet[setIndex] }}>
