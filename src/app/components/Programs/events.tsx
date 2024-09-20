@@ -47,9 +47,9 @@ export default function Events() {
   const displayThirdSet = useTransform(scrollYProgress, [0.65, 0.925], ["block", "none"]);
 
   return (
-    <motion.section ref={targetRef} className="h-[500vh] flex flex-col justify-start items-center">
+    <motion.section ref={targetRef} className="h-[500vh] bg-black flex flex-col justify-start items-center">
       <div className="sticky top-0 left-0 flex flex-col items-center justify-center gap-8 p-32">
-        <h2 className="text-4xl font-bold mb-8">Events</h2>
+        <h2 className="text-4xl font-bold mb-8 text-white">Events</h2>
 
         {/* First set of events */}
         <motion.div style={{ translateY: translateYFirstSet, opacity: opacityFirstSet, display: displayFirstSet }}>

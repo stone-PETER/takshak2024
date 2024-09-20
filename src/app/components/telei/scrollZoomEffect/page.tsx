@@ -23,7 +23,7 @@ export default function ScrollZoom()
     return <motion.div ref={targetRef} style={{ background}} className="  relative h-[700dvh] pt-10" >
         <div className=" sticky top-1/2 ">
         <motion.div style={{ scale,x }}>
-      <h1 className="text-center text-8xl font-bold  whitespace-nowrap">Be there!!!</h1>
+      <h1 className="text-center text-8xl font-bold  whitespace-nowrap text-black">Be there!!!</h1>
     </motion.div>
         </div>
         <div className=" sticky top-full flex justify-center items-center">
