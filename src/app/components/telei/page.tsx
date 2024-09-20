@@ -15,6 +15,7 @@ export default function Telei()
        <h1 className=" text-6xl">happening in 3hrs 6min</h1>
        <h2>be there !!</h2>
        </div> */}
+         <h1 className=" pb-5 px-5 text-4xl bg-black text-left text-slate-50">see More <span className=" text-gray-300 animate-pulse delay-200"> {">>>"}</span></h1>
        <ScrollZoom/>
     </section>
 }

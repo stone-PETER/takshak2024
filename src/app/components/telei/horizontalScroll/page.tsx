@@ -7,6 +7,7 @@ export default function HorizontalScroll()
     const {scrollYProgress}=useScroll({
         target: targetRef,
     })
+    
     const x=useTransform(scrollYProgress,[0,1],["1%","-80%"])
     const cardItems=[
         {
@@ -36,7 +37,7 @@ export default function HorizontalScroll()
     ]
     return <section ref={targetRef} className=" relative h-[500vh] bg-slate-900">
 <div className=" bg-black sticky top-0 h-screen flex items-center overflow-hidden">
-    <motion.div  style={{ x,rotate:-.7 }} className=" flex gap-3">
+    <motion.div  style={{ x,rotate:-.9 }} className=" flex gap-3">
         {cardItems.map((key,index)=><div key={index}>
             <div className="w-[50dvh] h-auto bg-white border-2 border-purple-800 rounded-md overflow-hidden">
                 <img className="w-full h-full object-cover" src={key.img} alt="Card"/>
@@ -45,8 +46,9 @@ export default function HorizontalScroll()
                 </div>
             </div>
         </div> )}
-       <h1 className=" text-7xl text-slate-50">Read More</h1>
+     
     </motion.div>
+  
 </div>
     </section>
 }
