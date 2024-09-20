@@ -18,7 +18,7 @@ const Footer = () => {
 
         <div className="contact-info flex flex-col items-center justify-center text-center gap-3">
           <h2 className="text-lg font-semibold mb-2 md:mb-0">Contact Us</h2>
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+          <div className="flex flex-row gap-4">
             <span className="flex items-center text-2xl">
               <a
                 href="https://www.instagram.com/takshak.24/"
