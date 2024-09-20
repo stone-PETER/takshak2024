@@ -16,7 +16,7 @@ import "./styles.css";
 export default function Hero() {
   return (
     <section className="h-screen ">
-      <div className="Title fixed -z-5 h-1/5 w-screen text-7xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
+      <div className="Title fixed -z-5 h-1/5 w-screen text-9xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
         <h1>TAKSHAK'24</h1>
         <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
@@ -48,7 +48,9 @@ export default function Hero() {
         <div className="absolute h-screen w-screen bg-black/70"></div>
         {/* <div className="overlay absolute h-screen w-screen bg-black/90"></div> */}
       </div>
-      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center"><h2>Is Coming to MACE</h2></div>
+      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center">
+        <h2>Is Coming to MACE</h2>
+      </div>
     </section>
   );
 }
