@@ -5,6 +5,7 @@ import Events from "./components/Programs/events";
 import Footer from "./components/footer/footer";
 export default function Home() {
   return (
+
     <>
       <Hero />
       <About />

@@ -6,6 +6,7 @@ export default function Hero()
    className=" flex flex-col justify-center items-center h-dvh bg-green-300">
      <h1 className="takshakMainHeading text-8xl sm:text-9xl scale-110">Takshak 2024</h1> 
      <h2 className=" text-3xl font-bold">Decade decrypted</h2>
+   
     {/* <FlipLink href="about">About</FlipLink>
     <FlipLink href="about">Telei</FlipLink>
     <FlipLink href="about">Events</FlipLink> */}
