@@ -1,6 +1,6 @@
 "use client"
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function Events() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -13,6 +13,28 @@ export default function Events() {
     id: `event${i + 1}`,
     src: "/images/event1.jpg",
   }));
+
+  // State to store the screen width
+  const [screenWidth, setScreenWidth] = useState<number | null>(null);
+
+  // Update the screen width after the component mounts
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+
+      // Add event listener for resize
+      const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      // Cleanup event listener on unmount
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
 
   // Transformation hooks for each set of images
   const translateXSet0 = [
@@ -48,12 +70,19 @@ export default function Events() {
     useTransform(scrollYProgress, [0.65, 0.925], ["block", "none"]),
   ];
 
-  const isLargeScreen = typeof window !== "undefined" && window.innerWidth > 1024;
-  // const isMediumScreen = typeof window !== "undefined" && window.innerWidth <= 1024 && window.innerWidth >= 768;
-
+  // Function to get the appropriate translateX based on screen width
   const getTranslateX = (index: number, setIndex: number) => {
+    if (screenWidth === null) return "0px"; // Default value instead of null
+
+    const isLargeScreen = screenWidth > 1024;
+    const isMediumScreen = screenWidth <= 1024 && screenWidth >= 768;
+
     if (isLargeScreen) {
       return index < 2
+        ? [translateXSet0, translateXSet1, translateXSet2][setIndex][0]
+        : [translateXSet0, translateXSet1, translateXSet2][setIndex][1];
+    } else if (isMediumScreen) {
+      return index % 2 === 0
         ? [translateXSet0, translateXSet1, translateXSet2][setIndex][0]
         : [translateXSet0, translateXSet1, translateXSet2][setIndex][1];
     } else {
@@ -70,12 +99,12 @@ export default function Events() {
 
         {[0, 1, 2].map((setIndex) => (
           <motion.div key={setIndex} style={{ translateY: translateYSet[setIndex], opacity: opacitySet[setIndex], display: displaySet[setIndex] }}>
-            <div className={`grid ${window.innerWidth < 768 ? "grid-cols-1" : window.innerWidth < 1024 ? "grid-cols-2" : "grid-cols-4"} gap-4 w-full`}>
+            <div className={`grid ${screenWidth && screenWidth < 768 ? "grid-cols-1" : screenWidth && screenWidth < 1024 ? "grid-cols-2" : "grid-cols-4"} gap-4 w-full`}>
               {events.slice(setIndex * 4, setIndex * 4 + 4).map((event, index) => (
                 <motion.img
                   key={event.id}
                   src={event.src}
-                  className={`object-cover ${window.innerWidth <= 768 ? "w-[200px] h-[auto]" : "w-[300px] h-[300px]"}`}
+                  className={`object-cover ${screenWidth && screenWidth <= 768 ? "w-[200px] h-[auto]" : "w-[300px] h-[300px]"}`}
                   style={{
                     translateX: getTranslateX(index, setIndex),
                   }}
