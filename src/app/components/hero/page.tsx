@@ -21,7 +21,7 @@ export default function Hero() {
         <h1>TAKSHAK'24</h1>
         <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
       </div>
-      <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-10 bg-black">
+      <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
         {/* <Image
           src="/images/recordPlayer-Hero.jpeg"
           width={500}
@@ -48,6 +48,7 @@ export default function Hero() {
         <div className="absolute h-screen w-screen bg-black/70"></div>
         {/* <div className="overlay absolute h-screen w-screen bg-black/90"></div> */}
       </div>
+      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center"><h2>Is Coming to MACE</h2></div>
     </section>
   );
 }

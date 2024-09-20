@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
 .Title-bg{
     background: linear-gradient(to bottom right,rgb(145, 87, 171), rgb(88 28 135) 65%, rgb(41, 4, 53));
 }
@@ -7,4 +8,7 @@
 }
 .overlay{
     background-color: rgba(240,209,165,.5);
+}
+.bottom-text{
+    font-family: 'ArcadeClassic', sans-serif;
 }
