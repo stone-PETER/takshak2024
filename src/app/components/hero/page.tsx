@@ -1,5 +1,7 @@
 "use client";
 import "./styles.css";
+import VideoPlayer from "./VideoPlayer";
+import{ useState, useEffect } from "react";
 // export default function Hero()
 // {screen
 //   return <section
@@ -14,41 +16,74 @@ import "./styles.css";
 // }
 
 export default function Hero() {
+  // const [VidSrc, setVidSrc] = useState<string>("RP-P.mp4");
+  // const updateVidSrc = (): void =>{
+  //   const screenWidth = window.innerWidth;
+  //   if (screenWidth >= 800) {
+  //     setVidSrc("RP-L.mp4");
+  //   }else {
+  //     setVidSrc("RP-P.mp4");
+  //   }
+  // }
+  // useEffect(() => {
+  //   // Update image source on initial load
+  //   updateVidSrc();
+  //   window.addEventListener("resize", updateVidSrc);
+  //   return () => window.removeEventListener("resize", updateVidSrc);
+  // }, []);
+  const useScrollPosition = () => {
+    const [scrollPosition, setScrollPosition] = useState(0);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrollPosition(window.pageYOffset);
+      };
+  
+      window.addEventListener('scroll', handleScroll, { passive: true });
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
+    return scrollPosition;
+  };
+  const scrollPosition = useScrollPosition();
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <section className="h-screen ">
-      <div className="Title fixed -z-5 h-1/5 w-screen text-6xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
+      <div className="Title fixed flex justify-center items-center  -z-5 h-2/5 w-screen  text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
         <h1>{"TAKSHAK'24"}</h1>
-        <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
+        <div className="Title-bg hidden absolute top-0 -z-10 h-full w-screen"></div>
       </div>
-      <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
-        {/* <Image
-          src="/images/recordPlayer-Hero.jpeg"
-          width={500}
-          height={300}
-          sizes="100vw"
-          style={{
-            width: "100vw",
-            height: "100vh",
-          }}
-          
-          alt="Picture of Record Player"
-        /> */}
-
-        <img
+      <div className="fixed h-full w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
+        <VideoPlayer/>
+        {/* <img
           className="absolute w-screen h-auto"
           src="/images/TakshakNews.png"
           alt="image of record player"
-        />
-        {/* <img
-          className="hidden absolute w-screen md:block"
-          src="/images/TakshakNews.png"
-          alt="image of record player"
         /> */}
-        <div className="absolute h-screen w-screen bg-black/70"></div>
-        {/* <div className="overlay absolute h-screen w-screen bg-black/90"></div> */}
+        <div className="absolute h-screen w-screen bg-black/80"></div>
+        <div className="absolute h-screen w-screen overlay"></div>
       </div>
-      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center">
+      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center" style={{
+          transform: `translateX(${Math.min(scrollPosition * 4, windowWidth)}px)`,
+        }}>
         <h2>Is Coming to MACE</h2>
       </div>
     </section>
