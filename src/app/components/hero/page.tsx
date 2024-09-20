@@ -1,5 +1,6 @@
 "use client";
 import "./styles.css";
+import{ useState, useEffect } from "react";
 // export default function Hero()
 // {screen
 //   return <section
@@ -14,6 +15,21 @@ import "./styles.css";
 // }
 
 export default function Hero() {
+  // const [VidSrc, setVidSrc] = useState<string>("RP-P.mp4");
+  // const updateVidSrc = (): void =>{
+  //   const screenWidth = window.innerWidth;
+  //   if (screenWidth >= 800) {
+  //     setVidSrc("RP-L.mp4");
+  //   }else {
+  //     setVidSrc("RP-P.mp4");
+  //   }
+  // }
+  // useEffect(() => {
+  //   // Update image source on initial load
+  //   updateVidSrc();
+  //   window.addEventListener("resize", updateVidSrc);
+  //   return () => window.removeEventListener("resize", updateVidSrc);
+  // }, []);
   return (
     <section className="h-screen ">
       <div className="Title fixed -z-5 h-1/5 w-screen text-6xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
@@ -22,31 +38,19 @@ export default function Hero() {
         <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
       </div>
       <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
-        {/* <Image
-          src="/images/recordPlayer-Hero.jpeg"
-          width={500}
-          height={300}
-          sizes="100vw"
-          style={{
-            width: "100vw",
-            height: "100vh",
-          }}
-          
-          alt="Picture of Record Player"
-        /> */}
-
-        <img
+        <video className="hidden lg:block"autoPlay muted loop id="myVideo">
+          <source src="RP-L.mp4" type="video/mp4" />
+        </video>
+        <video className="lg:hidden"autoPlay muted loop id="myVideo">
+          <source src="RP-P.mp4" type="video/mp4" />
+        </video>
+        {/* <img
           className="absolute w-screen h-auto"
           src="/images/TakshakNews.png"
           alt="image of record player"
-        />
-        {/* <img
-          className="hidden absolute w-screen md:block"
-          src="/images/TakshakNews.png"
-          alt="image of record player"
         /> */}
-        <div className="absolute h-screen w-screen bg-black/70"></div>
-        {/* <div className="overlay absolute h-screen w-screen bg-black/90"></div> */}
+        <div className="absolute h-screen w-screen bg-black/80"></div>
+        <div className="absolute h-screen w-screen overlay"></div>
       </div>
       <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center">
         <h2>Is Coming to MACE</h2>

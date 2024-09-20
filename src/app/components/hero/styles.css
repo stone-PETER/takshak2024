@@ -9,7 +9,7 @@
     /* text-shadow: 5px 2px #917628,7px 4px #f8edcd; */
 }
 .overlay{
-    background-color: rgba(240,209,165,.5);
+    background-color: rgba(240,209,165,.1);
 }
 .bottom-text{
     font-family: 'ArcadeClassic', sans-serif;
