@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.social {
+    height: auto;
+    width: 100vw;
+    background-color: rgb(30, 29, 29);
+   
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Space between the image-text-container and icon-container */
+    z-index: 100;
+    padding: 10px 20px; /* Add horizontal padding */
+}
+
+/* Container for image and text */
+.image-text-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    margin-right: 20px; /* Space between image-text-container and icon-container */
+}
+
+.social-image {
+    width: 128px; /* Adjust size as needed */
+    height: 110px; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.social-text {
+    font-size: 24px; /* Adjust text size as needed */
+    font-weight: bold; /* Optional: make the text bold */
+    color: #D4DFFF; /* Adjust text color as needed */
+}
+
+/* Container for icons */
+.icon-container {
+    color: aliceblue;
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    align-items: center; /* Center icons horizontally */
+    gap: 10px; /* Space between icons */
+}
+
+.social-icon {
+    font-size: 24px; /* Adjust icon size as needed */
+    color: #D4DFFF; /* Default icon color, adjust as needed */
+}
+
+.social-icon:hover {
+    color: #007bff; /* Change color on hover, adjust as needed */
+}
+
+.contact-info {
+    color: #D4DFFF;
+}
+
+.email-link {
+    color: #D4DFFF;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .social-icon {
+        font-size: 16px;
+    }
+
+    .social-text {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-height: 625px) {
+    .social-icon {
+        font-size: 16px;
+    }
+
+    .social-text {
+        font-size: 12px;
+        margin: 0.5vh;
+    }
+}
+.follow{
+    font-family:Arial, Helvetica, sans-serif;
+}
