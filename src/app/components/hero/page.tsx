@@ -18,7 +18,7 @@ export default function Hero() {
     <section className="h-screen ">
       <div className="Title fixed -z-5 h-1/5 w-screen text-6xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
-        <h1>TAKSHAK'24</h1>
+        <h1>{"TAKSHAK'24"}</h1>
         <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
       </div>
       <div className="fixed h-4/5 top-[20%] w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
