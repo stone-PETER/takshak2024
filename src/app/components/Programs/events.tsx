@@ -1,8 +1,15 @@
 "use client";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export default function Events() {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
   const events = [
     { id: "event1", src: "/images/event1.jpg" },
     { id: "event2", src: "/images/event1.jpg" },
@@ -18,30 +25,36 @@ export default function Events() {
     { id: "event12", src: "/images/event1.jpg" },
   ];
 
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  // Transformations for the first set of events
+  const translateXLeftFirstSet = useTransform(scrollYProgress, [0.1, 0.237, 0.375], ["-200px", "0px", "-200px"]);
+  const translateXRightFirstSet = useTransform(scrollYProgress, [0.1, 0.237, 0.375], ["200px", "0px", "200px"]);
+  const translateYFirstSet = useTransform(scrollYProgress, [0.1, 0.375], ["300px", "0px"]);
+  const opacityFirstSet = useTransform(scrollYProgress, [0.1, 0.237, 0.375], [0, 1, 0]);
+  const displayFirstSet = useTransform(scrollYProgress, [0.1, 0.375], ["block", "none"]);
+
+  // Transformations for the second set of events
+  const translateXLeftSecondSet = useTransform(scrollYProgress, [0.375, 0.5125, 0.65], ["-200px", "0px", "-200px"]);
+  const translateXRightSecondSet = useTransform(scrollYProgress, [0.375, 0.5125, 0.65], ["200px", "0px", "200px"]);
+  const translateYSecondSet = useTransform(scrollYProgress, [0.375, 0.65], ["300px", "0px"]);
+  const opacitySecondSet = useTransform(scrollYProgress, [0.375, 0.5125, 0.65], [0, 1, 0]);
+  const displaySecondSet = useTransform(scrollYProgress, [0.375, 0.65], ["block", "none"]);
+
+  // Transformations for the third set of events
+  const translateXLeftThirdSet = useTransform(scrollYProgress, [0.65, 0.7785, 0.925], ["-200px", "0px", "-200px"]);
+  const translateXRightThirdSet = useTransform(scrollYProgress, [0.65, 0.7785, 0.925], ["200px", "0px", "200px"]);
+  const translateYThirdSet = useTransform(scrollYProgress, [0.65, 0.925], ["300px", "0px"]);
+  const opacityThirdSet = useTransform(scrollYProgress, [0.65, 0.7785, 0.925], [0, 1, 0]);
+  const displayThirdSet = useTransform(scrollYProgress, [0.65, 0.925], ["block", "none"]);
 
   return (
-    <section className="h-[500vh] flex flex-col justify-start items-center" ref={ref}>
+    <motion.section ref={targetRef} className="h-[500vh] flex flex-col justify-start items-center">
       <div className="sticky top-0 left-0 flex flex-col items-center justify-center gap-8 p-32">
         <h2 className="text-4xl font-bold mb-8">Events</h2>
-        <div className="grid grid-cols-4 grid-rows-2 gap-4 w-full">
-          {events.slice(0, 4).map((event, index) => {
-            const translateX = useTransform(
-              scrollYProgress,
-              [0.1, 0.237, 0.375],
-              index < 2 ? ["-200px", "0px", "-200px"] : ["200px", "0px", "200px"]
-            );
-            const translateY = useTransform(
-              scrollYProgress,
-              [0.1, 0.375],
-              ["300px", "0px"]
-            );
-            const opacity = useTransform(scrollYProgress, [0.1, 0.237, 0.375], [0, 1, 0]);
-            // Use a direct array mapping for display property
-            const display = useTransform(scrollYProgress, [0.1, 0.375], ["block", "none"]);
 
-            return (
+        {/* First set of events */}
+        <motion.div style={{ translateY: translateYFirstSet, opacity: opacityFirstSet, display: displayFirstSet }}>
+          <div className="grid grid-cols-4 grid-rows-2 gap-4 w-full">
+            {events.slice(0, 4).map((event, index) => (
               <motion.img
                 key={event.id}
                 src={event.src}
@@ -49,30 +62,17 @@ export default function Events() {
                 height={300}
                 className="object-cover"
                 style={{
-                  translateX,
-                  translateY,
-                  opacity,
-                  display,
+                  translateX: index < 2 ? translateXLeftFirstSet : translateXRightFirstSet,
                 }}
               />
-            );
-          })}
+            ))}
+          </div>
+        </motion.div>
 
-          {events.slice(4, 8).map((event, index) => {
-            const translateX = useTransform(
-              scrollYProgress,
-              [0.375, 0.5125, 0.65],
-              index < 2 ? ["-200px", "0px", "-200px"] : ["200px", "0px", "200px"]
-            );
-            const translateY = useTransform(
-              scrollYProgress,
-              [0.375, 0.65],
-              ["300px", "0px"]
-            );
-            const opacity = useTransform(scrollYProgress, [0.375, 0.5125, 0.65], [0, 1, 0]);
-            const display = useTransform(scrollYProgress, [0.375, 0.65], ["block", "none"]);
-
-            return (
+        {/* Second set of events */}
+        <motion.div style={{ translateY: translateYSecondSet, opacity: opacitySecondSet, display: displaySecondSet }}>
+          <div className="grid grid-cols-4 grid-rows-2 gap-4 w-full">
+            {events.slice(4, 8).map((event, index) => (
               <motion.img
                 key={event.id}
                 src={event.src}
@@ -80,30 +80,17 @@ export default function Events() {
                 height={300}
                 className="object-cover"
                 style={{
-                  translateX,
-                  translateY,
-                  opacity,
-                  display,
+                  translateX: index < 2 ? translateXLeftSecondSet : translateXRightSecondSet,
                 }}
               />
-            );
-          })}
+            ))}
+          </div>
+        </motion.div>
 
-          {events.slice(8, 12).map((event, index) => {
-            const translateX = useTransform(
-              scrollYProgress,
-              [0.65, 0.885, 0.925],
-              index < 2 ? ["-200px", "0px", "-200px"] : ["200px", "0px", "200px"]
-            );
-            const translateY = useTransform(
-              scrollYProgress,
-              [0.65, 0.925],
-              ["300px", "0px"]
-            );
-            const opacity = useTransform(scrollYProgress, [0.65, 0.7785, 0.925], [0, 1, 0]);
-            const display = useTransform(scrollYProgress, [0.65, 0.925], ["block", "none"]);
-
-            return (
+        {/* Third set of events */}
+        <motion.div style={{ translateY: translateYThirdSet, opacity: opacityThirdSet, display: displayThirdSet }}>
+          <div className="grid grid-cols-4 grid-rows-2 gap-4 w-full">
+            {events.slice(8, 12).map((event, index) => (
               <motion.img
                 key={event.id}
                 src={event.src}
@@ -111,16 +98,13 @@ export default function Events() {
                 height={300}
                 className="object-cover"
                 style={{
-                  translateX,
-                  translateY,
-                  opacity,
-                  display,
+                  translateX: index < 2 ? translateXLeftThirdSet : translateXRightThirdSet,
                 }}
               />
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
