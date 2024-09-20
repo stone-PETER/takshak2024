@@ -16,7 +16,7 @@ import "./styles.css";
 export default function Hero() {
   return (
     <section className="h-screen ">
-      <div className="Title fixed -z-5 h-1/5 w-screen text-9xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
+      <div className="Title fixed -z-5 h-1/5 w-screen text-6xl md:text-9xl text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
         <h1>TAKSHAK'24</h1>
         <div className="Title-bg absolute top-0 -z-10 h-full w-screen"></div>
