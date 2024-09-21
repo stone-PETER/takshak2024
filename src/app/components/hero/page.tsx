@@ -84,7 +84,7 @@ export default function Hero() {
       <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center" style={{
           transform: `translateX(${Math.min(scrollPosition * 4, windowWidth)}px)`,
         }}>
-        <h2>Is Coming to MACE</h2>
+        <h2>#DecadeDecrypted</h2>
       </div>
     </section>
   );

@@ -11,30 +11,36 @@ export default function HorizontalScroll()
     const x=useTransform(scrollYProgress,[0,1],["1%","-80%"])
     const cardItems=[
         {
-            img:'/images/man.png',
-            text:'text 1'
+          img: "/images/Events/Ascension.jpg",
+          title: "Ascension",
+          text: "text 1",
         },
         {
-            img:'/images/man.png',
-            text:'text 2'
+            img: "/images/Events/TClash.jpg",
+            title: "TClash",
+            text: "text 3",
+          },
+        {
+          img: "/images/Events/BGMI.jpg",
+          title: "BGMI",
+          text: "text 3",
         },
         {
-            img:'/images/man.png',
-            text:'text 3'
+          img: "/images/Events/Codomizer.jpg",
+          title: "Codomizer",
+          text: "text 4",
         },
         {
-            img:'/images/man.png',
-            text:'text 4'
-        },
-        {
-            img:'/images/man.png',
-            text:'text 5'
-        },
-        {
-            img:'/images/man.png',
-            text:'text 6'
-        },
-    ]
+            img: "/images/Events/workshops/BotBuild.jpg",
+            title: "Bot Build",
+            text: "text 2",
+          },
+          {
+            img: "/images/Events/workshops/BullBearsBrains.jpg",
+            title: "Bulls Bears and Brains",
+            text: "text 3",
+          },
+      ]
     return <section ref={targetRef} className=" relative h-[500vh] bg-slate-900">
 <div className=" bg-black sticky top-0 h-screen flex items-center overflow-hidden">
     <motion.div  style={{ x,rotate:-.9 }} className=" flex gap-3">

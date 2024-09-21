@@ -2,7 +2,7 @@ import { FaInstagram, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8 px-12">
+    <footer className="bg-gray-800 text-white py-8 px-12 relative">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="college-info mb-4 md:mb-0 text-left p-4">
           <p className="college-name text-center md:text-left text-base md:text-lg">

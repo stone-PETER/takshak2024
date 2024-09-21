@@ -27,7 +27,7 @@ export default function ScrollZoom()
     </motion.div>
         </div>
         <div className=" sticky top-full flex justify-center items-center">
-        <motion.div className=" text-7xl text-white" style={{ y,opacity:opacity27th }}>27th Sept!!</motion.div>
+        <motion.div className=" text-7xl text-white p-[50px]" style={{ y,opacity:opacity27th }}>26,27&28th Sept!!</motion.div>
         </div>
        
    
