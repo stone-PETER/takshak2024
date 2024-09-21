@@ -66,12 +66,12 @@ export default function Hero() {
   }, []);
   return (
     <section className="h-screen ">
-      <div className="Title fixed flex justify-center items-center  -z-5 h-2/5 w-screen  text-yellow-100 font-semibold text-center leading-relaxed">
+      <div className="Title absolute fixed flex justify-center items-center  -z-5 h-2/5 w-screen  text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
         <h1>{"TAKSHAK'24"}</h1>
-        <div className="Title-bg hidden absolute top-0 -z-10 h-full w-screen"></div>
+        {/* <div className="Title-bg hidden absolute top-0 -z-10 h-full w-screen"></div> */}
       </div>
-      <div className="fixed h-full w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
+      <div className="fixed absolute h-full w-screen flex justify-center items-center overflow-hidden -z-20 bg-black">
         <VideoPlayer/>
         {/* <img
           className="absolute w-screen h-auto"
@@ -81,7 +81,7 @@ export default function Hero() {
         <div className="absolute h-screen w-screen bg-black/80"></div>
         <div className="absolute h-screen w-screen overlay"></div>
       </div>
-      <div className="bottom-text absolute w-full text-7xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center" style={{
+      <div className="bottom-text absolute w-full text-6xl bottom-10 -z-10 md:text-9xl text-white font-semibold text-center" style={{
           transform: `translateX(${Math.min(scrollPosition * 4, windowWidth)}px)`,
         }}>
         <h2>#DecadeDecrypted</h2>

@@ -19,5 +19,6 @@
 @media screen and (max-width: 760px) {
     .Title{
         text-shadow:5px 2px rgb(61, 61, 63),7px 4px #f8edcd;
+        font-size: 100px;
     }
 }
