@@ -3,9 +3,6 @@
     background: linear-gradient(to bottom right,rgb(145, 87, 171), rgb(88 28 135) 65%, rgb(41, 4, 53));
     /* background: linear-gradient(to bottom right, #efdea9 5%,#1f1701); */
 }
-.Hero{
-    height:-webkit-fill-available;
-}
 .Title{
     color: #f8edcd;
     text-shadow: 5px 2px rgb(22, 4, 54),7px 4px #f8edcd;
@@ -23,5 +20,8 @@
     .Title{
         text-shadow:5px 2px rgb(61, 61, 63),7px 4px #f8edcd;
         font-size: 100px;
+    }
+    .Hero{
+        height: 92vh;
     }
 }
