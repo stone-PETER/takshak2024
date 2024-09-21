@@ -138,12 +138,12 @@ export default function MoreEvents() {
   ];
 
   return (
-    <div className="container bg-black">
+    <div className="container bg-black w-full relative overflow-x-clip overflow-y-clip">
       <div className=" bg-black  flex flex-col items-center text-white p-5">
-        <h3 className=" text-6xl font-semibold">All Events</h3>
+        <h3 className=" text-4xl md:text-6xl font-semibold">All Events</h3>
       </div>
       <div className=" bg-black  flex flex-col items-center text-white p-5">
-        <h5 className=" text-4xl font-semibold">Competitions</h5>
+        <h5 className=" text-3xl md:text-4xl font-semibold">Competitions</h5>
       </div>
       <div className="carousel">
         {cardItems[0].map((key, index) => (
@@ -164,7 +164,7 @@ export default function MoreEvents() {
         ))}
       </div>
       <div className=" bg-black  flex flex-col items-center text-white p-5">
-        <h5 className=" text-4xl font-semibold">Workshops</h5>
+        <h5 className=" text-3xl md:text-4xl font-semibold">Workshops</h5>
       </div>
       <div className="carousel">
         {cardItems[2].map((key, index) => (
