@@ -2,7 +2,7 @@
 //import { image } from "framer-motion/client";
 import HorizontalScroll from "./horizontalScroll/page";
 import ScrollZoom from "./scrollZoomEffect/page";
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 //import { url } from "inspector";
 
 export default function Telei()
@@ -20,7 +20,7 @@ export default function Telei()
        </div> */}
        
         
-        <Link to="/events">
+        <Link href="/events">
          <h1 className=" pb-5 px-5 text-4xl bg-black text-left text-slate-50">see More <span className=" text-gray-300 animate-pulse delay-200"> {">>>"}</span></h1></Link>
        <ScrollZoom/>
     </section>
