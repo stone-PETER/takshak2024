@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.cdnfonts.com/css/super-retro-m54');
 @font-face {
   font-family: 'TakshakFont';
   src: url('fonts/Heathergreen-XPPG.ttf');
