@@ -33,7 +33,8 @@ export default function About() {
   };
 
   return (
-    <section
+    <section 
+    id="about"
       className="relative w-full h-screen overflow-hidden overflow-x-hidden"
       onMouseMove={handleMouseMove}
     >
