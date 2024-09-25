@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,10 +16,10 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: 'Takshak %s',
-    default: 'Takshak24',
+    template: "Takshak %s",
+    default: "Takshak24",
   },
-  description: 'Official website of Takshak, tech fest conducted by MACE',
+  description: "Official website of Takshak, tech fest conducted by MACE",
 };
 export default function RootLayout({
   children,
@@ -27,10 +28,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/T24.png" type="image/x-icon" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JLF8P5Y1H5"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JLF8P5Y1H5');
+          `}
+        </Script>
       </body>
     </html>
   );
