@@ -65,7 +65,7 @@ export default function Hero() {
     };
   }, []);
   return (
-    <section className="Hero h-screen relative overflow-x-clip overflow-y-clip">
+    <section id="hero" className="Hero h-screen relative overflow-x-clip overflow-y-clip">
       <div className="Title absolute fixed flex justify-center items-center  -z-5 h-2/5 w-screen  text-yellow-100 font-semibold text-center leading-relaxed">
         {/* <h2>Saptha</h2> */}
         <h1>{"TAKSHAK'24"}</h1>
