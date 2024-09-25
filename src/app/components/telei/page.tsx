@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Telei()
 {
-    return <section className=" overflow-x-clip overflow-y-clip relative z-50">
+    return <section className=" overflow-x-clip overflow-y-clip relative z-50 scroll-smooth">
        <div className=" bg-black  flex flex-col items-center text-white p-5">
       
        <h1 className=" text-6xl font-semibold">Events</h1>
