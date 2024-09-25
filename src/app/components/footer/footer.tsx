@@ -3,9 +3,9 @@ import { FaInstagram, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8 px-12 relative">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-12">
+      <div className="container mx-auto flex flex-row justify-between items-start flex-wrap">
         {/* College Info */}
-        <div className="college-info text-left p-4 flex-1 md:w-1/3">
+        <div className="college-info text-left p-4 w-full sm:w-auto flex-1">
           <p className="college-name text-base md:text-lg">
             Mar Athanasius College of Engineering <br />
             Kothamangalam <br />
@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
 
         {/* Useful Links */}
-        <div className="useful-links text-left p-4 flex-1 md:w-1/3">
+        <div className="useful-links text-left p-4 w-full sm:w-auto flex-1">
           <h2 className="text-lg font-semibold mb-2">Useful Links</h2>
           <ul className="text-sm md:text-base space-y-2">
             <li>
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Info */}
-        <div className="contact-info flex flex-col items-center text-center p-4 flex-1 md:w-1/3">
+        <div className="contact-info flex flex-col items-center text-center p-4 w-full sm:w-auto flex-1">
           <h2 className="text-lg font-semibold mb-2">Contact Us</h2>
           <div className="flex flex-row gap-4">
             <span className="flex items-center text-2xl">
