@@ -82,6 +82,12 @@ export default function MoreEvents() {
         text: "text 5",
         link:"https://takshak-mca.in",
       },
+      {
+        img: "/images/Events/ChrysoDeras.jpg",
+        title: "Chryso Deras",
+        text: "text 3",
+        link: "https://forms.gle/Sx673TpjUM6PAWAt7",
+      },
     ],
     [
       {
@@ -135,6 +141,64 @@ export default function MoreEvents() {
         link:"https://forms.gle/dFaPiacxqHSP7szP9",
       },
     ],
+    [
+      {
+        img: "/images/Events/XTerrain.jpg",
+        title: "X Terrain",
+        text: "text 5",
+        link:"https://forms.gle/5C1G52qXKQQUevbq8",
+      }, 
+      {
+        img: "/images/Events/DriveForward.jpg",
+        title: "Drive Forward",
+        text: "text 5",
+        link:"https://forms.gle/KrdE1wnQL9zhMroJ9",
+      }, 
+    ],
+    [
+      {
+        img: "/images/Events/telei/TeleiAutoshow.jpg",
+        title: "Telei Autoshow",
+        text: "text 5",
+        link:"",
+      }, 
+      {
+        img: "/images/Events/telei/TokyoDrift.jpg",
+        title: "Tokyo Drift",
+        text: "text 5",
+        link:"",
+      }, 
+      {
+        img: "/images/Events/telei/Celica.jpg",
+        title: "Celica",
+        text: "text 5",
+        link:"",
+      }, 
+      {
+        img: "/images/Events/telei/Porsche.jpg",
+        title: "Porsche",
+        text: "text 5",
+        link:"",
+      }, 
+      {
+        img: "/images/Events/telei/Isuzu.jpg",
+        title: "Isuzu",
+        text: "text 5",
+        link:"",
+      }, 
+      {
+        img: "/images/Events/telei/Hummer.jpg",
+        title: "Hummer",
+        text: "text 5",
+        link:"",
+      }, 
+      {
+        img: "/images/Events/telei/Supra.jpg",
+        title: "Supra",
+        text: "text 5",
+        link:"",
+      }, 
+    ],
   ];
 
   return (
@@ -163,6 +227,15 @@ export default function MoreEvents() {
           </div>
         ))}
       </div>
+      <div className="carousel">
+        {cardItems[4].map((key, index) => (
+          <div className="item" key={index} onClick={() => openPopup(key.img)}>
+            <p className="card-title">{key.title}</p>
+            <a href={key.link} target="_blank"><img className="" src={key.img} alt="Card" /></a>
+            <p className="details">{key.text}</p>
+          </div>
+        ))}
+      </div>
       <div className=" bg-black  flex flex-col items-center text-white p-5">
         <h5 className=" text-3xl md:text-4xl font-semibold">Workshops</h5>
       </div>
@@ -180,6 +253,18 @@ export default function MoreEvents() {
       </div>
       <div className="carousel">
         {cardItems[3].map((key, index) => (
+          <div className="item" key={index} onClick={() => openPopup(key.img)}>
+            <p className="card-title">{key.title}</p>
+            <a href={key.link} target="_blank"><img className="" src={key.img} alt="Card" /></a>
+            <p className="details">{key.text}</p>
+          </div>
+        ))}
+      </div>
+      <div className=" bg-black  flex flex-col items-center text-white p-5">
+        <h5 className=" text-4xl font-semibold">Telei</h5>
+      </div>
+      <div className="carousel">
+        {cardItems[5].map((key, index) => (
           <div className="item" key={index} onClick={() => openPopup(key.img)}>
             <p className="card-title">{key.title}</p>
             <a href={key.link} target="_blank"><img className="" src={key.img} alt="Card" /></a>

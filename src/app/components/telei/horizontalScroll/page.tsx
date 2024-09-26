@@ -45,6 +45,18 @@ export default function HorizontalScroll() {
       text: "text 3",
       link: "https://forms.gle/ziZ2zttYKfAvpwp46",
     },
+    {
+      img: "/images/Events/ChrysoDeras.jpg",
+      title: "Chryso Deras",
+      text: "text 3",
+      link: "https://forms.gle/Sx673TpjUM6PAWAt7",
+    },
+    {
+      img: "/images/Events/Others/TechTraverse.jpg",
+      title: "Tech Traverse",
+      text: "text 5",
+      link:"https://forms.gle/dFaPiacxqHSP7szP9",
+    },
   ];
   return (
     <section ref={targetRef} className=" relative h-[500vh] bg-slate-900">
