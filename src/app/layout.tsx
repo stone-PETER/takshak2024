@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/T24.png" type="image/x-icon" />
+        <link href="https://fonts.cdnfonts.com/css/super-retro-m54" rel="stylesheet"></link>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
